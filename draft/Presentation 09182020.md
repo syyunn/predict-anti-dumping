@@ -22,7 +22,7 @@ From the U.S.
     - Predicting final outcome of the U.S. Department of Commerce & USITC investigation - whether the material injury is admitted or not (affirmative or not)
        - [Drope, 2004](https://sci-hub.tw/10.2307/3219832)
        - [Iliescu, 2016](http://www2.southeastern.edu/orgs/econjournal/index_files/JIGES%20DECEMBER%202016%20Nicoleta%20Iliescu%20%20US%20Lobby%20Activity.pdf)
-2. Model Input(s) (to predict one of the targets of prediction above)
+2. Model Input(s)
     - Macro Economic Data 
         - Domestic: GDP or RGDP, Domestic Industrial Production (from FRED), Employment Rate
             - [Ahmad, 2018](https://usitc.gov/publications/332/working_papers/ecwp-2018-10-a.pdf)  
@@ -52,16 +52,16 @@ From the U.S.
     used `LobbyAmount` to predict each case's affirmative decision, however, no details are available about how they actually matched each specific AD case and LD-2 reports.
     
 3. Finer Product Level
-    - [Ahmad, 2018](https://usitc.gov/publications/332/working_papers/ecwp-2018-10-a.pdf) predicts total number of all filings for each quarter, however, we need to predict which product group will be filed for this research to be practically used in the government affair industry. 
+    - [Ahmad, 2018](https://usitc.gov/publications/332/working_papers/ecwp-2018-10-a.pdf) predicts total number of all filings for each quarter, however, we need to predict `which product group` will be filed if we expect the model is actually used in the government affair industry. 
         - Antidumping petitions are usually specifying its target products with 8-digit HTSUS codes (more digit more finer classification), but we have only 6 digit level of Trade Flow in the UNComtrade data. 
 
 4. Model
   - All models are Linear
-    - Linear models are hard to catch the interaction between multiple input variables. 
+    - Linear models are hard to capture the interaction between multiple input variables. 
        - [Ahmad, 2018](https://usitc.gov/publications/332/working_papers/ecwp-2018-10-a.pdf) concluded AD petitions in the U.S. in `only` partially related to the macroeconomic conditions with the linear model, which can't capture the interaction between those macro-economic indices. 
-       - However, if non-linear models are usually lacking its model interpretability, which means hard to track which input variables are major cause of the predict outcome.
+       - However, non-linear models are usually lacking its interpretability, thus hard to track which input variables are major cause of the predicted outcome.
 
-### Miscellaneous
+### Figures
 1. Number of cases that antidumping duties are affirmatively levied. (Soruce: USITC Open Data)
 ![](./myplot1)
 
@@ -73,7 +73,7 @@ From the U.S.
 
 ![](./myplot3)
 
-1-3.LD-2 Reports With Steel and AD/CVD Keyword in its Issue Text
+1-3.LD-2 Reports With the Keywords - `Steel` and `AD/CVD` - in its Issue Text At the Same Time
 
 ![](./myplot4)
 
