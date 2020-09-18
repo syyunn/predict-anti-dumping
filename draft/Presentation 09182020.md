@@ -1,4 +1,4 @@
-# Predict Antidumping 
+# Predict Antidumping
 From the U.S.
 
 ## What is Antidumping?
@@ -41,19 +41,41 @@ From the U.S.
         - UNComtrade Data (Bilateral trade volume & total value in product-group level)    
            - [Iliescu, 2016](http://www2.southeastern.edu/orgs/econjournal/index_files/JIGES%20DECEMBER%202016%20Nicoleta%20Iliescu%20%20US%20Lobby%20Activity.pdf)
 
-### What is Lacking Current Literature?
-1. Scope
-- HS
-2. Model
-- So Linear.
-  - Linear models are hard to catch the interaction between multiple variables
-- However, if non
+### What is Lacking in Current Literature?
+1. Outdated 
+    - [Drope, 2004](https://sci-hub.tw/10.2307/3219832) : 1996 - 1999      
+    - [Iliescu, 2016](http://www2.southeastern.edu/orgs/econjournal/index_files/JIGES%20DECEMBER%202016%20Nicoleta%20Iliescu%20%20US%20Lobby%20Activity.pdf) : 1999 - 2006
+    - [Ahmad, 2018](https://usitc.gov/publications/332/working_papers/ecwp-2018-10-a.pdf) : 1993 - 2017
+ 
+2. Reproducibility
+    - [Drope, 2004](https://sci-hub.tw/10.2307/3219832) and [Iliescu, 2016](http://www2.southeastern.edu/orgs/econjournal/index_files/JIGES%20DECEMBER%202016%20Nicoleta%20Iliescu%20%20US%20Lobby%20Activity.pdf) 
+    used `LobbyAmount` to predict each case's affirmative decision, however, no details are available about how they actually matched each specific AD case and LD-2 reports.
+    
+3. Finer Product Level
+    - [Ahmad, 2018](https://usitc.gov/publications/332/working_papers/ecwp-2018-10-a.pdf) predicts total number of all filings for each quarter, however, we need to predict which product group will be filed for this research to be practically used in the government affair industry. 
+        - Antidumping petitions are usually specifying its target products with 8-digit HTSUS codes (more digit more finer classification), but we have only 6 digit level of Trade Flow in the UNComtrade data. 
 
-## Final Miscellaneous sharing is..
-### Hard to reproduce
-### Outdated
-### Current Trend of Antidumping Orders
-### So Linear but Is Non Linear Acceptable with its Lack of Interpretability (of the model)?
+4. Model
+  - All models are Linear
+    - Linear models are hard to catch the interaction between multiple input variables. 
+       - [Ahmad, 2018](https://usitc.gov/publications/332/working_papers/ecwp-2018-10-a.pdf) concluded AD petitions in the U.S. in `only` partially related to the macroeconomic conditions with the linear model, which can't capture the interaction between those macro-economic indices. 
+       - However, if non-linear models are usually lacking its model interpretability, which means hard to track which input variables are major cause of the predict outcome.
+
+### Miscellaneous
+1. Number of cases that antidumping duties are affirmatively levied. (Soruce: USITC Open Data)
+![](./myplot1)
+
+1-1.Plotting All and Steel cases
+
+![](./myplot2)
+
+1-2.Draw Vertical Lines For each Presidency
+
+![](./myplot3)
+
+1-3.LD-2 Reports With Steel and AD/CVD Keyword in its Issue Text
+
+![](./myplot4)
 
 
 ## References 
