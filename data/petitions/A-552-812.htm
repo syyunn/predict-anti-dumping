@@ -1,0 +1,1562 @@
+
+<!DOCTYPE html>
+
+<html>
+<head><title>
+	ACCESS
+</title>
+    <script type="text/javascript">
+
+    // Start XFS prevention code
+    if (top != self) {
+        top.location = self.location;
+    }
+    // End XFS prevention code
+
+    if (typeof jQuery != 'undefined') {
+        jQuery(document).ready(function ($) {
+            var filetypes = /\.(zip|exe|pdf|mp4|mov|wmv|txt|doc*|xls*|ppt*|mp3)$/i;
+            var baseHref = '';
+            if (jQuery('base').attr('href') != undefined)
+                baseHref = jQuery('base').attr('href');
+            jQuery('a').each(function () {
+                var href = jQuery(this).attr('href');
+                if (href && (href.match(/^https?\:/i)) && (!href.match(document.domain))) {
+                    jQuery(this).click(function () {
+                        var extLink = href.replace(/^https?\:\/\//i, '');
+                        _gaq.push(['_trackEvent', 'External', 'Click', extLink]);
+                        if (jQuery(this).attr('target') != undefined && jQuery(this).attr('target').toLowerCase() != '_blank') {
+                            setTimeout(function () { location.href = href; }, 200);
+                            return false;
+                        }
+                    });
+                }
+                else if (href && href.match(/^mailto\:/i)) {
+                    jQuery(this).click(function () {
+                        var mailLink = href.replace(/^mailto\:/i, '');
+                        _gaq.push(['_trackEvent', 'Email', 'Click', mailLink]);
+                    });
+                }
+                else if (href && href.match(filetypes)) {
+                    jQuery(this).click(function () {
+                        var extension = (/[.]/.exec(href)) ? /[^.]+$/.exec(href) : undefined;
+                        var filePath = href;
+                        _gaq.push(['_trackEvent', 'Download', 'Click-' + extension, filePath]);
+                        if (jQuery(this).attr('target') != undefined && jQuery(this).attr('target').toLowerCase() != '_blank') {
+                            setTimeout(function () { location.href = baseHref + href; }, 200);
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+    } </script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27059663-1']);
+    _gaq.push(['_setDomainName', '.trade.gov']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])", 10000);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script type='text/javascript' src="../scripts/foresee-trigger.js"></script>
+<script type='text/javascript' id="_fed_an_ua_tag" src="../scripts/UniversalFederated-Analytics.js?agency=DOC&subagency=ITA"></script>
+<script type="text/javascript" src="../scripts/main.js?v=51"></script>
+    
+    
+    <style type="text/css">
+.modalBackground 
+{ 	
+    background-color: Gray;
+    position:fixed; 
+    top:0px; 
+    bottom:0px; 
+    left:0px;
+    right:0px;
+    overflow:hidden; 
+    padding:0; 
+    margin:0; 
+    filter:alpha(opacity=50); 
+    opacity:0.5; 
+    z-index:1000; 	
+}
+</style>    
+<script type="text/javascript">
+    var launch = false;
+    function launchModal() {
+        launch = true;
+    }
+
+    function pageLoad() {
+        if (launch) {
+            $find("mpe").show();
+        }
+    }
+</script>   
+<script type="text/javascript">
+
+    var timeout = 500;
+    var closetimer = 0;
+    var ddmenuitem = 0;
+
+    // open hidden layer
+    function mopen(id) {
+        // cancel close timer
+        mcancelclosetime();
+
+        // close old layer
+        if (ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+        // get new layer and show it
+        ddmenuitem = document.getElementById(id);
+        ddmenuitem.style.visibility = 'visible';
+
+    }
+    // close showed layer
+    function mclose() {
+        if (ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+    }
+
+    // go close timer
+    function mclosetime() {
+        closetimer = window.setTimeout(mclose, timeout);
+    }
+
+    // cancel close timer
+    function mcancelclosetime() {
+        if (closetimer) {
+            window.clearTimeout(closetimer);
+            closetimer = null;
+        }
+    }
+
+    // close layer when click-out
+    document.onclick = mclose;
+
+</script>
+   
+    
+
+    <![if IE]>
+        <link href="../CSS/ie.css" rel="stylesheet" type="text/css" />
+    <![endif]>
+
+    <![if !IE]>    
+        <link href="../CSS/chrome.css" rel="stylesheet" type="text/css" />
+    <![endif]>
+
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css" /><link rel="stylesheet" href="../CSS/ACCESSCustom.css" /><link href="../CSS/print.css" rel="stylesheet" type="text/css" media="print" /><link href="../CSS/AjaxCalendar.css" rel="stylesheet" type="text/css" />
+
+    
+    <script src="../scripts/jquery_3_4_1.js" type="text/javascript"></script>
+    <script src="../scripts/bootstrap.min.js" type="text/javascript"></script>  
+    
+
+    <script type="text/javascript" src="../scripts/jquery.min.1.6.0.js"></script>
+
+    <script type="text/javascript" src="../scripts/jquery-ui.min.1.8.12.js"></script>
+
+    <script type="text/javascript" src="../scripts/timeout-dialog.js"></script>
+
+    <link href="../CSS/timeout-dialog.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" >
+
+        function Timer(time) {
+            setTimeout(TimeOut, time);
+        }
+
+        function TimeOut() {
+            $.timeoutDialog({
+                timeout: 2,
+                countdown: 120,
+                keep_alive_url: window.location.pathname,
+                logout_redirect_url: '../logout.aspx',
+                restart_on_yes: true
+            });
+        }
+
+    </script>
+    <script type="text/javascript" src="../scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="/signalr/hubs"></script>
+</head>
+<body>    
+     <form name="aspnetForm" method="post" action="./searchresults.aspx?btn=search" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZJpmUq7ULzuaQjopN2auTai_yOlu94RJ_QuoLQiJte299MYlpF19XduEYz0Hs9Rspg2&amp;t=637292882187400015" type="text/javascript"></script>
+
+<script type="text/javascript" language="javascript">Timer('780000');</script>
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvvcQUlk0KullS8cPcq5al4ABiT654x9sWYVepTFlm0ZMP5MNE9h9Wilsv5nEIRiz18JeVK0kOlgxrZ3-egFoj9KPF86P67uDs5fAmgeroFFi6B8VfCyg4kN3YJcwxCytKIJBWvS3VKKwAGy4mj8qD7A1&amp;t=ffffffffce034dab" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OJypJ4W8-PiWqu-kpl-vMp2VXK8g906SjQFjUDE8pBg-uqyYaY9k0kFFfCidOMa0RxDwhjwgXpvO65OtO0JQzXFUXhMDwBqmG4KcR2mk99gqq9EWCmJbENGeJSm30M34y68yNIKNxeOw15FVnwHQkss1&amp;t=ffffffffce034dab" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="37075736" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+</div>
+     <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$asm', 'aspnetForm', [], [], [], 90, 'ctl00$ctl00');
+//]]>
+</script>
+
+     <!-- Header -->
+        <div class="banner col-sm-12">
+             
+
+ <header class="header">
+     <div class="header_branding">
+        <a href="https://trade.gov"><img class="header_branding-logo" alt="International Trade Administration Logo" src="../images/logo.svg" /></a>
+     </div>
+     <div class="header_content noprint">
+         <nav class="navbar nabvar-default ITANav">
+             <div class="navbar-header">
+             </div>
+             <div class="" id="navbar1">
+                 <ul class="nav navbar-nav">
+                     <li class="dropdown ITA_header ITA_header1"><a href="#" class="dropdown-toggle header_dd_link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="../images/usFlag.svg" class="TradeIconUS" />For U.S. Businesses<small><span class="caret"></span></small></a>                         
+                         <ul class="dropdown-menu dd_ITA">
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <ul class="multi-column-dropdown">
+                                         <li><a href="https://www.trade.gov/export-solutions">Export Solutions</a></li>
+                                         <div class="header_dropdown_bar"></div>
+                                         <li class="col-1"><a href="https://www.trade.gov/learn-how-export">Learn How To Export</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/international-market-research">Research Foreign Markets</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/network-and-learn-events">Network & Learn at Events</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/find-buyers-and-partners">Find Buyers & Partners</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/ecommerce">Explore eCommerce Resources</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/finance">Obtain Financing</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/negotiate-export-sale">Negotiate an Export Sale</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/navigate-shipping-and-logistics">Navigate Shipping & Logistics</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/comply-us-and-foreign-regulations">Comply with U.S. and Foreign Export Regulations</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/perform-due-diligence">Perform Due Deligience</a></li>
+                                         <li class="col-1"><a href="https://www.stopfakes.gov/welcome">Protect Intellectual Property</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/resolve-trade-problem">Resolve Export Problems</a></li>                                         
+                                     </ul>
+                                     <br />                                 
+                                 </div>
+                                 <div class="col-sm-3">
+                                     <ul class="multi-column-dropdown">
+                                         <li><a href="https://www.trade.gov/research">RESEARCH CENTER</a></li>
+                                         <div class="header_dropdown_bar"></div>
+                                         <li class="col-1"><a href="https://www.trade.gov/industries-0">Research By Industry</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/research-country">Research By Country</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/research-region">Research By Region</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/steel-focus-global-steel-trade">Focus on Global Steel Trade</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/industry-trade-advisory-center">Industry Trade Advisory Center</a></li>
+                                     </ul>
+                                     <br />
+                                 </div>
+                                 <div class="col-sm-3">
+                                     <ul class="multi-column-dropdown">
+                                         <li><a href="https://www.trade.gov/regulations">REGULATIONS & AGREEMENTS</a></li>
+                                         <div class="header_dropdown_bar"></div>
+                                         <li class="col-1"><a href="https://www.trade.gov/us-export-regulations-0">U.S. Export Regulations</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/foreign-regulations">Foreign Regulations</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/trade-agreements">Trade Agreements</a></li>
+                                      </ul>
+                                     <br />
+                                 </div>
+                                 <div class="col-sm-3">
+                                 <ul class="multi-column-dropdown">
+                                     <li><a href="https://www.trade.gov/resolve-trade-problem">RESOLVE A TRADE PROBLEM</a></li>
+                                     <div class="header_dropdown_bar"></div>
+                                     <li class="col-1"><a href="https://www.trade.gov/resolve-foreign-trade-barrier">Resolve a Foreign Trade Barrier</a></li>
+                                     <li class="col-1"><a href="https://www.trade.gov/us-antidumping-and-countervailing-duties">U.S. Antidumping & Countervailing Duties</a></li>
+                                     <li class="col-1"><a href="https://www.trade.gov/foreign-adcvd-or-safeguard-investigation">Facing a Foreign Trade AD/CVD or Safeguard Investigation?</a></li>
+                                     <li class="col-1"><a href="https://www.trade.gov/get-help-foreign-subsidies">Get Help with Foreign Subsidies</a></li>
+                                     <li class="col-1"><a href="https://www.stopfakes.gov/welcome">Protect Your Intellectual</a></li>
+                                     <li class="col-1"><a href="https://www.trade.gov/advocacy-foreign-government-contracts">Advocating for U.S. Business Abroad</a></li>                                     
+                                 </ul>                                 
+                                </div>
+                             </div>
+                             <!-- row -->
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <ul class="multi-column-dropdown">
+                                         <li><a href="https://www.trade.gov/attend-event">ATTEND AN EVENT</a></li>
+                                         <div class="header_dropdown_bar"></div>
+                                         <li class="col-1"><a href="https://www.trade.gov/network-and-learn-events">Network & Learn at Events</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/meet-buyers-events">Meet Buyers at Events</a></li>
+                                         <li class="col-1"><a href="https://legacy.export.gov/industries">Events by Industry</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/tepp">Services for Trade Event Organizers</a></li>
+                                         <li class="col-1"><a href="https://www.selectusa.gov/events">Foreign Direct Investment Attraction Events</a></li>
+                                     </ul>
+                                 </div>
+                                 <div class="col-sm-3">
+                                     <ul class="multi-column-dropdown">
+                                         <li><a href="https://www.trade.gov/news-and-highlights">NEWS & HIGHLIGHTS</a></li>
+                                         <div class="header_dropdown_bar"></div>
+                                         <li class="col-1"><a href="https://www.trade.gov/press">Press</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/blog">Blog</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/success-stories">ITA Success Stories</a></li>                                     
+                                     </ul>
+                                 </div>
+                                 <div class="col-sm-3">
+                                     <ul class="multi-column-dropdown">
+                                         <li><a href="https://www.trade.gov/let-our-experts-help-0">LET OUR EXPERTS HELP</a></li>
+                                         <div class="header_dropdown_bar"></div>
+                                         <li class="col-1"><a href="https://www.trade.gov/introductory-services-exporters-plan-and-assess">Services for U.S. Companies New to Exporting</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/services-current-exporters">Services for U.S. Companies Currently Exporting</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/tepp">Services for Trade Event Organizers</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/let-our-experts-help">Services for U.S. Associations & EDOs</a></li>
+                                         <li class="col-1"><a href="https://www.trade.gov/foreign-trade-zones-board">Foreign-Trade Zones</a></li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </ul>                             
+                     </li>
+                     <li class="dropdown ITA_header" ><a href="#" class="dropdown-toggle header_dd_link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="../images/ic_language_24px.svg" class="TradeIconInt"/>For International Businesses<span class="caret"></span></a>
+                         <ul class="dropdown-menu dd_ITA">
+                             <div class="col-sm-6">
+                                 <ul class="multi-column-dropdown">
+                                     <li><a href="https://www.buyusa.gov/">BUY FROM THE USA</a></li>
+                                     <div class="header_dropdown_bar"></div>
+                                     <li class="col-1"><a href="https://www.buyusa.gov/import/index.asp">Find a Supplier - All Other Industries</a></li>
+                                     <li class="col-1"><a href="https://otexa.trade.gov/scripts/MadeInUSA.exe">Find a Supplier - Textiles & Apparel</a></li>
+                                 </ul>
+                             </div>
+                             <div class="col-sm-6">
+                                 <ul class="multi-column-dropdown">
+                                     <li><a href="https://www.selectusa.gov/welcome">INVEST IN THE USA</a></li>
+                                     <div class="header_dropdown_bar"></div>
+                                     <li class="col-1"><a href="https://www.selectusa.gov/why-invest">Why Invest in the USA</a></li>
+                                     <li class="col-1"><a href="https://www.selectusa.gov/resources">Inform Your Investment</a></li>
+                                     <li class="col-1"><a href="https://www.selectusa.gov/industries">Industry Spotlight</a></li>
+                                     <li class="col-1"><a href="https://www.selectusa.gov/newsroom">News</a></li>
+                                     <li class="col-1"><a href="https://www.selectusa.gov/contact-us">Find an Expert</a></li>
+                                 </ul>
+                             </div>
+                         </ul>
+                     </li>
+                     <li class="header_dd_link ITA_header"><a href="https://www.trade.gov/about-us" class="fontblack">About ITA</a></li>
+                     <li class="header_dd_link ITA_header"><a href="https://www.trade.gov/contact-us" class="fontblack">Contact Us</a></li>
+                     <li>
+                         <div id="ctl00_ctl00_header_TradeSearch" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ctl00_header_btnTradeSearch&#39;)">
+	
+                             <input name="ctl00$ctl00$header$txtTradeSearch" type="text" id="ctl00_ctl00_header_txtTradeSearch" class="tradesearch_textbox" placeholder="Search Trade.gov" />
+                             <input type="submit" name="ctl00$ctl00$header$btnTradeSearch" value="" onclick="target =&#39;_blank&#39;;" id="ctl00_ctl00_header_btnTradeSearch" class="tradesearch_button" />
+                         
+</div>
+                     </li>
+                 </ul>
+             </div>             
+         </nav>
+     </div>     
+ </header>
+
+        </div>
+        <div class="connector col-sm-12">
+            
+    
+
+<script type="text/javascript">
+    function Navigate1(id) {
+        javascript: window.open("../quickhelp.aspx?hname=" + id, null, "height=200,width=400,status=yes,scrollbars=1,toolbar=no,menubar=no,location=no,left=300,top=300");
+    }    
+</script>
+<div id="ctl00_ctl00_Content_QuickSearch_quicksearch_qSearch" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ctl00_Content_QuickSearch_quicksearch_btnQuickSearch&#39;)">
+	
+<div class="quicksearch noprint">    
+    <div class="col-sm-12 quicksearchrow">
+        <div class="col-sm-2 ACCESSDiv" style="" ><span class="accessheader">ACCESS</span></div>
+        <div class="col-sm-4">
+            <span id="ctl00_ctl00_Content_QuickSearch_quicksearch_txtFullName" class="quicksearchleft">Suyeol</span>
+            <span id="ctl00_ctl00_Content_QuickSearch_quicksearch_lblDateTime" class="quicksearchleft2">9/12/2020 7:08:53 AM</span>
+        </div>               
+        <div class="col-sm-6 floatright">
+            <a href="index.asp" id="printthispage" onClick=" window.print(); return false">Print This Page</a>
+    
+            <input name="ctl00$ctl00$Content_QuickSearch$quicksearch$txtQuickSearch" type="text" id="ctl00_ctl00_Content_QuickSearch_quicksearch_txtQuickSearch" class="quicksearch_textbox" placeholder="Search ACCESS" />
+    
+             <select name="ctl00$ctl00$Content_QuickSearch$quicksearch$ddQuickSearch" id="ctl00_ctl00_Content_QuickSearch_quicksearch_ddQuickSearch" class="quicksearch_dd">
+		<option value="barcode">Bar Code</option>
+		<option selected="selected" value="caseno">Case No.</option>
+		<option value="fulltext">Full-Text</option>
+
+	</select>
+    
+            <input type="submit" name="ctl00$ctl00$Content_QuickSearch$quicksearch$btnQuickSearch" value="Quick Search" id="ctl00_ctl00_Content_QuickSearch_quicksearch_btnQuickSearch" class="quicksearch_button btn btn-default" style="width:90px;" />
+            <input type="image" name="ctl00$ctl00$Content_QuickSearch$quicksearch$ImageButton" id="ctl00_ctl00_Content_QuickSearch_quicksearch_ImageButton" tabindex="-1" title="Click &#39;Quick Search&#39; to perform search for selected criteria." OnError=" this.src = &#39;images/help_image_clrbg.gif&#39; " src="../images/help_image_clrbg.gif" onclick="Navigate1(&#39;quicksearch&#39;);return false;" style="border-width:0px;" />
+        </div>
+    </div>       
+</div>
+
+</div>
+
+
+        </div>
+        
+        <div class="container main col-sm-12">
+             <!--Left Nav -->
+            
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('[data-toggle=offcanvas]').click(function() {
+        $('.sidenav').toggleClass('active');
+        });
+    });
+</script>
+
+<div id="left" class="sidenav col-sm-2 noprint marginTOP">     
+    
+
+    <a id="ctl00_ctl00_leftnav_HyperLink1" href="home.aspx">Home</a>
+
+            <a id="ctl00_ctl00_leftnav_HyperLink14" href="FRNotices.aspx">FR Notices</a>
+    <a id="ctl00_ctl00_leftnav_HyperLink2" href="searchresults.aspx?btn=released">Public Releases</a>
+    
+            
+            <a id="ctl00_ctl00_leftnav_HyperLink15" href="searchresults.aspx?btn=sl">New Service Lists</a>
+
+            <a id="ctl00_ctl00_leftnav_HyperLink3" href="searchresults.aspx?btn=petition">New Petitions</a>
+
+            <a id="ctl00_ctl00_leftnav_HyperLink4" href="search.aspx">Search</a>
+    <a id="ctl00_ctl00_leftnav_HyperLink5" href="../update.aspx">Update Profile</a>
+
+            <a id="ctl00_ctl00_leftnav_HyperLink6" href="../help.aspx">Help</a>
+            <a id="ctl00_ctl00_leftnav_HyperLink7" href="../logout.aspx">Logout</a>
+          
+           
+    
+</div>
+
+            <!--Main Body -->
+            <div class="col-sm-10" style="padding-right:0px;">
+                
+        
+<script type="text/javascript">    
+    $(document).ready(function () {
+        function countChecked() {
+            var c = $("input:checked").length;
+            if (c >= 10) {
+                $(':checkbox[type=checkbox]').not(':checked').attr('disabled', true)
+                var errorMessage = document.getElementsByClassName('MaxCount')[0];
+                errorMessage.innerHTML = "Maximum number of files for download is 10.";
+                var errorMessage1 = document.getElementsByClassName('Count')[0];
+                errorMessage1.innerHTML = "Files selected: " + c ;
+            }
+            else {
+                $(':checkbox[type=checkbox]:disabled').attr('disabled', false);
+                var errorMessage = document.getElementsByClassName('Count')[0];
+                errorMessage.innerHTML = "Files selected: " + c;
+                var errorMessage1 = document.getElementsByClassName('MaxCount')[0];
+                errorMessage1.innerHTML = "";
+            }
+        }
+
+        $(":checkbox").click(countChecked);         
+    });
+</script>
+
+<br />
+<div class="cardHeaders col-md-12">
+    <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lblPageHeader" class="cardHeaders">ACCESS Search Results</span>
+</div>
+    <div class="alignCenter">
+       
+    <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_Count" class="MaxCount" style="color:Red;font-weight:bold;"></span>  
+</div>
+<span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lblSearchQuery"><br/>Case Number=A-552-812<br/>Document Type=Petition</span>
+<div class="col-md-12 alignCenter">
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkFirst" disabled="disabled" class="btn btn-link" style="color:Black;">First</a>
+    &nbsp;
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkPrevious" disabled="disabled" class="btn btn-link" style="color:Black;">Previous</a>
+    &nbsp;&nbsp;
+    Page&nbsp;
+    <select name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$ddlpageNumbers" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$ddlpageNumbers\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_ddlpageNumbers">
+	<option selected="selected" value="1">1</option>
+
+</select>&nbsp;of&nbsp;
+    <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lblTotalPages">1</span>&nbsp;
+    Pages.
+    &nbsp;&nbsp;
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkNext" disabled="disabled" class="btn btn-link" style="color:Black;">Next</a>
+    &nbsp;
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkLast" disabled="disabled" class="btn btn-link" style="color:Black;">Last</a>
+</div>
+<table class="homeTable3">
+    <col width="6%"/>
+    <col width="8%"/>
+    <col width="15%"/>
+    <col width="12%"/>
+    <col width="20%"/>
+    <col width="8%"/>
+    <col width="15%"/>
+    <col width="9%"/>
+    <col width="16%"/>
+    <col width="7%"/>
+    
+        <tr>
+            <td>
+            <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_lnkFiledDate" class="rptHeader" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl00$lnkFiledDate&#39;,&#39;&#39;)">Filed Date</a>
+            </td>
+            <td>
+            <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_LinkButton2" class="rptHeader" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl00$LinkButton2&#39;,&#39;&#39;)" style="display:inline-block;width:63px;">Case No.</a>
+            </td>
+            <td>
+            <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Label2" class="rptHeader">Segment</span>  
+            </td>
+            <td>
+            <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Label3" class="rptHeader">Type</span>  
+            </td>
+            <td>
+            <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Label4" class="rptHeader">Title</span>  
+            </td>
+            <td>
+            <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Label5" class="rptHeader">Filed By</span>  
+            </td>
+            <td>
+            <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Label6" class="rptHeader">Pertaining to</span>  
+            </td>
+            <td>
+            <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Label7" class="rptHeader">Security</span>  
+            </td>
+            <td>
+            <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Label8" class="rptHeader">Bar Code</span>  
+            </td>
+            <td>
+                <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_Count" class="Count" style="color:Red;font-size:13px;"></span>   
+                <input type="submit" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl00$btndwnldfl" value="Download Files" id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl00_btndwnldfl" title="Download checked files" class="btn btn-primary btn-sm btncolor noprint" /><br />
+                <button ID="btnuncheckall" OnClick="btnUncheckAll(); return false;" title="Uncheck all checked files marked for download" Class="btn btn-primary btn-sm btncolor noprint btnuncheckall">Uncheck All</button>
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl01_btnDocTitle" Type="web" ContentID="EXT_046296&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl01$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 3, Part 4</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-22
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl01_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl01$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl01_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl01_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046296&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl01$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl01_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046296&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl01_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl01$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl02_btnDocTitle" Type="web" ContentID="EXT_046295&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl02$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 3, Part 3</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-21
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl02_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl02$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl02_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl02_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046295&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl02$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl02_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046295&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl02_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl02$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl03_btnDocTitle" Type="web" ContentID="EXT_046297&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl03$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 3, Part 5</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-23
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl03_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl03$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl03_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl03_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046297&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl03$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl03_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046297&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl03_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl03$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl04_btnDocTitle" Type="web" ContentID="EXT_046290&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl04$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 12</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-16
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl04_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl04$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl04_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl04_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046290&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl04$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl04_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046290&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl04_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl04$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl05_btnDocTitle" Type="web" ContentID="EXT_046291&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl05$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 13</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-17
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl05_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl05$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl05_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl05_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046291&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl05$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl05_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046291&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl05_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl05$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl06_btnDocTitle" Type="web" ContentID="EXT_046292&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl06$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 3</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-18
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl06_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl06$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl06_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl06_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046292&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl06$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl06_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046292&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl06_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl06$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl07_btnDocTitle" Type="web" ContentID="EXT_046294&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl07$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 3, Part 2</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-20
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl07_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl07$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl07_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl07_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046294&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl07$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl07_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046294&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl07_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl07$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl08_btnDocTitle" Type="web" ContentID="EXT_046293&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl08$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 3, Part 1</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-19
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl08_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl08$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl08_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl08_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046293&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl08$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl08_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046293&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl08_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl08$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl09_btnDocTitle" Type="web" ContentID="EXT_046286&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl09$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 9</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-13
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl09_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl09$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl09_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl09_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046286&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl09$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl09_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046286&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl09_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl09$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl10_btnDocTitle" Type="web" ContentID="EXT_046284&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl10$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 7</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-11
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl10_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl10$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl10_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl10_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046284&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl10$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl10_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046284&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl10_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl10$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl11_btnDocTitle" Type="web" ContentID="EXT_046285&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl11$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 8</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-12
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl11_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl11$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl11_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl11_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046285&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl11$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl11_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046285&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl11_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl11$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl12_btnDocTitle" Type="web" ContentID="EXT_046288&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl12$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 11</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-15
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl12_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl12$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl12_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl12_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046288&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl12$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl12_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046288&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl12_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl12$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl13_btnDocTitle" Type="web" ContentID="EXT_046287&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl13$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 10</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-14
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl13_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl13$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl13_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl13_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046287&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl13$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl13_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046287&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl13_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl13$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl14_btnDocTitle" Type="web" ContentID="EXT_046283&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl14$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 6</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-10
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl14_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl14$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl14_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl14_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046283&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl14$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl14_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046283&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl14_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl14$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl15_btnDocTitle" Type="web" ContentID="EXT_046282&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl15$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 5</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-09
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl15_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl15$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl15_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl15_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046282&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl15$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl15_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046282&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl15_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl15$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl16_btnDocTitle" Type="web" ContentID="EXT_046280&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl16$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 3</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-07
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl16_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl16$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl16_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl16_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046280&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl16$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl16_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046280&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl16_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl16$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl17_btnDocTitle" Type="web" ContentID="EXT_046279&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl17$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 2c</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-06
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl17_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl17$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl17_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl17_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046279&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl17$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl17_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046279&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl17_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl17$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl18_btnDocTitle" Type="web" ContentID="EXT_046281&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl18$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 4</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-08
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl18_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl18$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl18_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl18_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046281&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl18$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl18_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046281&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl18_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl18$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl19_btnDocTitle" Type="web" ContentID="EXT_046273&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl19$btnDocTitle&#39;,&#39;&#39;)">Petition Narrative, Part 1</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-01
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl19_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl19$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl19_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl19_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046273&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl19$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl19_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046273&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl19_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl19$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl20_btnDocTitle" Type="web" ContentID="EXT_046274&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl20$btnDocTitle&#39;,&#39;&#39;)">Petition Narrative, Part 2</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-02
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl20_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl20$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl20_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl20_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046274&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl20$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl20_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046274&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl20_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl20$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl21_btnDocTitle" Type="web" ContentID="EXT_046276&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl21$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 2a</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-04
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl21_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl21$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl21_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl21_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046276&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl21$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl21_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046276&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl21_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl21$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl22_btnDocTitle" Type="web" ContentID="EXT_046275&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl22$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 1</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-03
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl22_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl22$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl22_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl22_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046275&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl22$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl22_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046275&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl22_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl22$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+        <tr class="rowSpacing">
+            <td>
+                12/29/11
+            </td>
+            <td>
+                A-552-812
+            </td>
+            <td>
+                INV - Investigation
+            </td>
+            <td class="searchresults_fileddate">
+                Petition    
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl23_btnDocTitle" Type="web" ContentID="EXT_046277&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl23$btnDocTitle&#39;,&#39;&#39;)">Petition Volume 1, Part 2b</a>
+            </td>
+            <td>    
+                Vorys, Sater, Seymou...
+            </td>
+            <td>
+                Petitioners
+            </td>
+            <td>
+                Public Ver    
+            </td>
+            <td>
+                3048748-05
+            </td>
+            <td>
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl23_LinkButton1" class="marginRightBPI" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl23$LinkButton1&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl23_Image1" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" /></a>    
+
+                <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl23_btnDownloadSourceFile" class="marginRightBPI" Type="primary" ContentID="EXT_046277&amp;pdf" href="javascript:__doPostBack(&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl23$btnDownloadSourceFile&#39;,&#39;&#39;)"><img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl23_Image3" title="Download source file" src="../images/download.ico" style="border-width:0px;" /></a>
+                <span Type="web" ContentID="EXT_046277&amp;pdf"><input id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_rptNewReleaseDocuments_ctl23_chkDwnldFl" type="checkbox" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$rptNewReleaseDocuments$ctl23$chkDwnldFl" /></span>            
+            </td>
+        </tr>
+    
+    
+</table>
+<div class="col-md-12 alignCenter marginTOP">
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkFirst2" disabled="disabled" class="btn btn-link" style="color:Black;">First</a>
+    &nbsp;
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkPrevious2" disabled="disabled" class="btn btn-link" style="color:Black;">Previous</a>
+    &nbsp;&nbsp;
+    Page&nbsp;
+    <select name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$ddlpageNumbers2" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$ContentPlaceHolder1$maincontent1$ddlpageNumbers2\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_ddlpageNumbers2">
+	<option selected="selected" value="1">1</option>
+
+</select>&nbsp;of&nbsp;
+    <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_Label11">1</span>&nbsp;Pages.
+    &nbsp;&nbsp;
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkNext2" disabled="disabled" class="btn btn-link" style="color:Black;">Next</a>
+    &nbsp;
+    <a id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_lnkLast2" disabled="disabled" class="btn btn-link" style="color:Black;">Last</a>
+</div>
+<br />
+<div class="col-sm-12">
+    <img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_Image2" title="Related files for this submission" src="../images/RelatedContent.gif" style="border-width:0px;" />
+    <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_Label9">: Related files for this submission</span>
+    <br />
+    <img id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_Image4" title="Download source file" src="../images/download.ico" style="border-width:0px;" />
+    <span id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_Label10">: Download source file</span>
+    <div class="alignCenter">
+    <input type="submit" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$btnRefine_Search" value="Refine Search" id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_btnRefine_Search" />
+    <input src="../images/help_image_clrbg.gif" name="ctl00$ctl00$ContentPlaceHolder1$maincontent1$helpRefine_Search" type="image" id="ctl00_ctl00_ContentPlaceHolder1_maincontent1_helpRefine_Search" title="Click &#39;Refine Search&#39; to modify/add filters to selected criteria." onclick="Navigate(&#39;advancedsearch&#39;);return false;" class="searchResultBorder" />
+    </div>
+    
+</div>
+
+
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+         <!--Footer -->
+         
+
+<div id="footer" class="noprint col-sm-12">
+<br><br>
+    <div class="col-sm-12">        
+	    <div class="col-sm-3">
+            <a href="https://trade.gov/" class="footerheader">For U.S. Businesses</a>
+            <ul >
+                <li class="footerTop"><a href="https://www.trade.gov/export-solutions">Export Solutions</a></li>                
+                <li class="col-1-footer"><a href="https://www.trade.gov/learn-how-export">Learn How To Export</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/international-market-research">Research Foreign Markets</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/network-and-learn-events">Network & Learn at Events</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/find-buyers-and-partners">Find Buyers & Partners</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/ecommerce">Explore eCommerce Resources</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/finance">Obtain Financing</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/negotiate-export-sale">Negotiate an Export Sale</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/navigate-shipping-and-logistics">Navigate Shipping & Logistics</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/comply-us-and-foreign-regulations">Comply with U.S. and Foreign Export Regulations</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/perform-due-diligence">Perform Due Deligience</a></li>
+                <li class="col-1-footer"><a href="https://www.stopfakes.gov/welcome">Protect Intellectual Property</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/resolve-trade-problem">Resolve Export Problems</a></li>                                         
+             </ul>
+	    </div>
+        <div class="col-sm-3">
+            <ul >
+                <li></li>
+                 <li  class="footerTop"><a href="https://www.trade.gov/research">RESEARCH CENTER</a></li>                 
+                 <li class="col-1-footer"><a href="https://www.trade.gov/industries-0">Research By Industry</a></li>
+                 <li class="col-1-footer"><a href="https://www.trade.gov/research-country">Research By Country</a></li>
+                 <li class="col-1-footer"><a href="https://www.trade.gov/research-region">Research By Region</a></li>
+                 <li class="col-1-footer"><a href="https://www.trade.gov/steel-focus-global-steel-trade">Focus on Global Steel Trade</a></li>
+                 <li class="col-1-footer"><a href="https://www.trade.gov/industry-trade-advisory-center">Industry Trade Advisory Center</a></li>
+            </ul>
+	    </div>
+        <div class="col-sm-3">
+             <ul>
+                 <li></li>
+                <li class="footerTop"><a href="https://www.trade.gov/regulations">REGULATIONS & AGREEMENTS</a></li>                
+                <li class="col-1-footer"><a href="https://www.trade.gov/us-export-regulations-0">U.S. Export Regulations</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/foreign-regulations">Foreign Regulations</a></li>
+                <li class="col-1-footer"><a href="https://www.trade.gov/trade-agreements">Trade Agreements</a></li>
+             </ul>
+	    </div>
+        <div class="col-sm-3">
+            <a href="https://www.trade.gov/international-trade-administration-0" class="footerheader">For International Businesses</a>
+            <ul >
+                 <li class="footerTop"><a href="https://www.buyusa.gov/">BUY FROM THE USA</a></li>                 
+                 <li class="col-1-footer"><a href="https://www.buyusa.gov/import/index.asp">Find a Supplier - All Other Industries</a></li>
+                 <li class="col-1-footer"><a href="https://otexa.trade.gov/scripts/MadeInUSA.exe">Find a Supplier - Textiles & Apparel</a></li>
+                 
+                 <li class="footerTop"><a href="https://www.selectusa.gov/welcome">INVEST IN THE USA</a></li>
+                                    
+                 <li class="col-1-footer"><a href="https://www.selectusa.gov/why-invest">Why Invest in the USA</a></li>
+                 <li class="col-1-footer"><a href="https://www.selectusa.gov/resources">Inform Your Investment</a></li>
+                 <li class="col-1-footer"><a href="https://www.selectusa.gov/industries">Industry Spotlight</a></li>
+                 <li class="col-1-footer"><a href="https://www.selectusa.gov/newsroom">News</a></li>
+                 <li class="col-1-footer"><a href="https://www.selectusa.gov/contact-us">Find an Expert</a></li>
+            </ul>
+	    </div>
+     </div>
+     <div class="col-sm-12">
+         <div class="col-sm-3">
+             <ul>
+                 <li class="footerTop"><a href="https://www.trade.gov/resolve-trade-problem">RESOLVE A TRADE PROBLEM</a></li>
+                                     
+                  <li class="col-1-footer"><a href="https://www.trade.gov/resolve-foreign-trade-barrier">Resolve a Foreign Trade Barrier</a></li>
+                  <li class="col-1-footer"><a href="https://www.trade.gov/us-antidumping-and-countervailing-duties">U.S. Antidumping & Countervailing Duties</a></li>
+                  <li class="col-1-footer"><a href="https://www.trade.gov/foreign-adcvd-or-safeguard-investigation">Facing a Foreign Trade AD/CVD or Safeguard Investigation?</a></li>
+                  <li class="col-1-footer"><a href="https://www.trade.gov/get-help-foreign-subsidies">Get Help with Foreign Subsidies</a></li>
+                  <li class="col-1-footer"><a href="https://www.stopfakes.gov/welcome">Protect Your Intellectual</a></li>
+                  <li class="col-1-footer"><a href="https://www.trade.gov/advocacy-foreign-government-contracts">Advocating for U.S. Business Abroad</a></li>    
+              </ul>
+         </div>
+            <div class="col-sm-3">
+                 <ul>
+                     <li class="footerTop"><a href="https://www.trade.gov/attend-event">ATTEND AN EVENT</a></li>
+                 
+                     <li class="col-1-footer"><a href="https://www.trade.gov/network-and-learn-events">Network & Learn at Events</a></li>
+                     <li class="col-1-footer"><a href="https://www.trade.gov/meet-buyers-events">Meet Buyers at Events</a></li>
+                     <li class="col-1-footer"><a href="https://legacy.export.gov/industries">Events by Industry</a></li>
+                     <li class="col-1-footer"><a href="https://www.trade.gov/tepp">Services for Trade Event Organizers</a></li>
+                     <li class="col-1-footer"><a href="https://www.selectusa.gov/events">Foreign Direct Investment Attraction Events</a></li>
+                 </ul>
+	        </div>
+            <div class="col-sm-3">
+                 <ul>
+                     <li class="footerTop"><a href="https://www.trade.gov/news-and-highlights">NEWS & HIGHLIGHTS</a></li>
+                 
+                     <li class="col-1-footer"><a href="https://www.trade.gov/press">Press</a></li>
+                     <li class="col-1-footer"><a href="https://www.trade.gov/blog">Blog</a></li>
+                     <li class="col-1-footer"><a href="https://www.trade.gov/success-stories">ITA Success Stories</a></li>                                     
+                 </ul>
+	        </div>
+         </div>
+        <div class="col-sm-12">
+            <div class="col-sm-3">
+                 <ul >
+                      <li class="footerTop"><a href="https://www.trade.gov/let-our-experts-help-0">LET OUR EXPERTS HELP</a></li>
+                  
+                      <li class="col-1-footer"><a href="https://www.trade.gov/introductory-services-exporters-plan-and-assess">Services for U.S. Companies New to Exporting</a></li>
+                      <li class="col-1-footer"><a href="https://www.trade.gov/services-current-exporters">Services for U.S. Companies Currently Exporting</a></li>
+                      <li class="col-1-footer"><a href="https://www.trade.gov/tepp">Services for Trade Event Organizers</a></li>
+                      <li class="col-1-footer"><a href="https://www.trade.gov/let-our-experts-help">Services for U.S. Associations & EDOs</a></li>
+                      <li class="col-1-footer"><a href="https://www.trade.gov/foreign-trade-zones-board">Foreign-Trade Zones</a></li>
+                  </ul>
+	        </div>
+     </div>
+    
+ <!--ending Footer Div -->
+
+	<div id="footerdivider" class="col-sm-12">
+        <hr />
+        <div class="col-sm-3"><img class="header_branding-logo" alt="International Trade Administration Logo" src="../images/logo.svg" /></div>
+        <div class="col-sm-6 footercontent">
+		
+        <p>The International Trade Administration, U.S. Department of Commerce, manages this global trade site to provide access to ITA information on promoting trade and investment, strengthening the competitiveness of U.S. industry, and ensuring fair trade and compliance with trade laws and agreements. External links to other Internet sites should not be construed as an endorsement of the views or privacy policies contained therein. This site contains PDF documents. A PDF reader is available from Adobe Systems Incorporated.</p>  
+        <br />
+		<a href="http://www.usa.gov">USA.gov</a> | <a href="https://www.trade.gov/foia">FOIA</a>  | <a href="https://legacy.trade.gov/privacy-program.asp">Privacy Program</a> | <a href="https://legacy.trade.gov/hrm/documents/eeo_policy_statement.pdf">EEO Policy</a> | <a href="https://www.trade.gov/endorsement-disclaimer">Disclaimer</a>  |
+        <a href="https://legacy.trade.gov/ITAiqs.pdf">Information Quality Guidelines</a>
+        <br /><br />
+        </div>
+        <div class="col-sm-3 footercontent">
+            <p>
+                International Trade Administration <br />
+                U.S. Department of Commerce <br />
+                1401 Constitution Ave NW <br />
+                Washington, DC 20230
+            </p>
+        </div>
+    </div>
+</div>
+     
+        </form>
+        <script type="text/javascript">
+        function Navigate(id) {
+            javascript: window.open("../quickhelp.aspx?hname=" + id, null, "height=200,width=400,status=yes,scrollbars=1,toolbar=no,menubar=no,location=no,left=300,top=300");
+        }    
+    </script>
+</body>
+</html>
