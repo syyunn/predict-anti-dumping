@@ -1,7 +1,7 @@
 import pandas as pd
 from collections import defaultdict
 
-csv = "./caselist_w_petition_date.csv"
+csv = "./trend_of_antidumping/caselist_w_petition_date.csv"
 df = pd.read_csv(csv)
 
 clusters = []
